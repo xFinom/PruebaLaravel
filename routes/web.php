@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,4 +20,12 @@ Route::get('/', function () {
 
 Route::get('/contact', function (){
     return view('contacto');
+});
+
+Route::post('/contact', function (Request $request){
+    dd($request->correo);
+});
+
+Route::post('/contact/{tipo}', function (Request $request){
+    return view('contacto',compact('tipo'));
 });
